@@ -4,11 +4,11 @@ const Friend = props => {
     return (
         <div className='friend'>
             {props.info.name}
-            <button onClick={() => openDetails(props.info.id)}>
+            <button onClick={() => props.openDetails(props.info.id)}>
                 See details
             </button>
         </div>
-  )
+    )
 }
 
 export default Friend;
