@@ -7,12 +7,29 @@ export default function Details(props) {
   const [details, setDetails] = useState(null)
 
   // 👉 TASK 4 - Create a side effect 🥇 that runs only after first render.
-
+  useEffect(() => {
+    console.log("🥇 TASK 4");
+  }, [])
   // 👉 TASK 5 - Create a side effect 👻 that runs only after first render
   // and puts a 'click' event handler on document.
   // See what happens if we don't clean up.
+  useEffect(() => {
+    console.log("👻 TASK 5");
+    const sillyListener = () => {
+      console.log("What am I doing here?")
+    }
+    document.addEventListener("click", sillyListener);
+
+    return () => {
+      console.log("CLEAN UP ON AISLE 5!");
+      document.removeEventListener("click", sillyListener);
+    }
+  }, [])
 
   // 👉 TASK 6 - Create a side effect 🥵 that runs after every render.
+  useEffect(() => {
+    console.log("🥵 TASK 6 PHEWWWW")
+  })
 
   // 👉 TASK 7 - Create a side effect 📲 that runs when a particular variable changes:
   // Whenever props.friendId updates we should trigger a fetch for details of the friend.
